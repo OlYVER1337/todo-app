@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./todo-backend
+    container_name: todo-backend
+    ports:
+      - '4000:4000'
+    volumes:
+      - todo-data:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build: ./todo-frontend
+    container_name: todo-frontend
+    ports:
+      - '8080:80'
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  todo-data:
