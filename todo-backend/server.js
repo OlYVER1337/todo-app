@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
 const todoModel = require("./todoModel");
+const cors = require("cors");
 
 app.use(express.json());
-
+app.use(cors());
 app.get("/health", (req, res) => {
     res.status(200).json({
         status: "OK",
