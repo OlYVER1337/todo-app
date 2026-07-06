@@ -101,24 +101,7 @@ docker compose down
 | `limit` | số item/trang | `5` |
 
 ## 4. Deploy lên môi trường online (gợi ý)
-
-**Backend** — Render.com:
-1. Push code lên GitHub.
-2. Tạo Web Service mới, root directory `todo-backend`, build command `npm install`, start command `npm start`.
-3. Gắn Persistent Disk vào đường dẫn chứa `db.json` (hoặc set `DB_FILE` trỏ vào disk đó) để dữ liệu không mất khi service redeploy.
-
-**Frontend** — Vercel/Netlify:
-1. Root directory `todo-frontend`, build command `npm run build`, output `dist`.
-2. Set biến môi trường `VITE_API_BASE_URL=https://<domain-backend>/api`.
-
-**Hoặc dùng 1 VPS + Docker Compose:**
-```bash
-git clone <repo-url>
-cd <repo>
-docker compose up -d --build
-```
-Sau đó cấu hình Nginx/reverse proxy + domain + SSL trỏ vào cổng 8080.
-
+-`https://mytodo-3n2lu1vqj-olyver1337s-projects.vercel.app/` mới chỉ deloy được Forntend
 ## 5. Ghi chú
 
 - `todoModel.js` lưu dữ liệu bằng file JSON (`db.json`) — đơn giản, dễ hiểu khi mới học, phù hợp cho project quy mô nhỏ. Có thể nâng cấp sang SQLite/PostgreSQL
